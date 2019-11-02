@@ -7,12 +7,38 @@
     tools:context=".RegisterActivity">
 
     <EditText
+        android:id="@+id/footsizeText"
+        android:layout_width="263dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="FootSize(카메라로 대체될 것임)"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText" />
+
+    <EditText
+        android:id="@+id/addressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+
+    <EditText
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -45,36 +71,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
-    <RadioButton
-        android:id="@+id/maleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Male"
-        app:layout_constraintBaseline_toBaselineOf="@+id/femaleButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/femaleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="27dp"
-        android:text="Female"
+    <RadioGroup
+        android:id="@+id/genderGroup"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintStart_toEndOf="@+id/maleButton" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailText"
+        app:layout_constraintVertical_bias="0.812">
 
-    <RadioButton
-        android:id="@+id/otherButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
-        android:text="Other"
-        app:layout_constraintBaseline_toBaselineOf="@+id/femaleButton"
-        app:layout_constraintStart_toEndOf="@+id/femaleButton" />
+        <RadioButton
+            android:id="@+id/maleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Male"
+            app:layout_constraintBaseline_toBaselineOf="@+id/femaleButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/femaleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Female"
+            app:layout_constraintBottom_toTopOf="@+id/registerButton"
+            app:layout_constraintStart_toEndOf="@+id/maleButton" />
+
+        <RadioButton
+            android:id="@+id/otherButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginLeft="22dp"
+            android:text="Other"
+            app:layout_constraintBaseline_toBaselineOf="@+id/femaleButton"
+            app:layout_constraintStart_toEndOf="@+id/femaleButton" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/registerButton"
@@ -82,17 +120,14 @@
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="229dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="231dp"
+        android:layout_marginBottom="76dp"
         android:text="register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/idText"
@@ -121,14 +156,14 @@
         app:layout_constraintTop_toBottomOf="@+id/ageText" />
 
     <TextView
-        android:id="@+id/genderView"
+        android:id="@+id/genderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gender"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/maleButton"
-        app:layout_constraintEnd_toStartOf="@+id/femaleButton"
-        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintBottom_toTopOf="@+id/genderGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailText"
         app:layout_constraintVertical_bias="1.0" />
