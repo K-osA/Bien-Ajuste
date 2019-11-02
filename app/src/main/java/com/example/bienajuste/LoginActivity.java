@@ -42,7 +42,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view){
                 final String userID = idText.getText().toString();
                 final String userPassword = passwordText.getText().toString();
-
+                if(userID.equals("") || userPassword.equals("")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setMessage("Check Empty")
+                            .setNegativeButton("Confirm",null)
+                            .create()
+                            .show();
+                    return;
+                }
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
