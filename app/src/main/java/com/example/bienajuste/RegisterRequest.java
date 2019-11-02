@@ -1,6 +1,5 @@
 package com.example.bienajuste;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -25,7 +24,7 @@ public class RegisterRequest extends StringRequest {
     }
 
     @Override
-    public Map<String, String> getParams() throws AuthFailureError {
+    public Map<String, String> getParams(){
         return parameters;
     }
 }

@@ -17,7 +17,7 @@ public class LoginRequest extends StringRequest {
         parameters.put("userPassword",userPassword);
     }
     @Override
-    public Map<String, String> getParams(){
+    public Map<String, String> getParams() {
         return parameters;
     }
 }

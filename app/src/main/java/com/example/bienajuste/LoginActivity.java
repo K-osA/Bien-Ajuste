@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
@@ -57,12 +56,29 @@ public class LoginActivity extends AppCompatActivity {
                         try{
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
+
                             if(success){
                                 String userID = jsonResponse.getString("userID");
                                 String userPassword = jsonResponse.getString("userPassword");
+                                String userName = jsonResponse.getString("userName");
+                                int userAge = jsonResponse.getInt("userAge");
+                                String userEmail = jsonResponse.getString("userEmail");
+                                String userAddress = jsonResponse.getString("userAddress");
+                                double userFootsize = jsonResponse.getDouble("userFootsize");
+                                int userGender = jsonResponse.getInt("userGender");
+                                int isManager = jsonResponse.getInt("isManager");
+
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID",userID);
                                 intent.putExtra("userPassword",userPassword);
+                                intent.putExtra("userName",userName);
+                                intent.putExtra("userAge",userAge);
+                                intent.putExtra("userEmail",userEmail);
+                                intent.putExtra("userAddress",userAddress);
+                                intent.putExtra("userFootsize",userFootsize);
+                                intent.putExtra("userGender",userGender);
+                                intent.putExtra("isManager",isManager);
+
                                 LoginActivity.this.startActivity(intent);
                             }
                             else{

@@ -4,13 +4,13 @@ import androidx.annotation.IdRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +22,7 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
     private int userGender=0;
     private boolean validate=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try{
-                            Toast.makeText(RegisterActivity.this, response, Toast.LENGTH_LONG).show();
-
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
@@ -107,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userAddress = addressText.getText().toString();
                 String ChkuserFootsize = footsizeText.getText().toString();
 
-                if(validate){
+                if(!validate){
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     builder.setMessage("Need check ID")
                             .setNegativeButton("Confirm",null)
@@ -135,19 +134,24 @@ public class RegisterActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
+                                AlertDialog dialog;
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Register completed!")
-                                        .setPositiveButton("Confirm",null)
-                                        .create()
-                                        .show();
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                RegisterActivity.this.startActivity(intent);
+                                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                                RegisterActivity.this.startActivity(intent);
+                                            }
+                                        });
+                                dialog=builder.create();
+                                dialog.show();
                             }
 
                             else{
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Register Failed")
-                                        .setNegativeButton("Try again",null)
+                                        .setNegativeButton("Confirm",null)
                                         .create()
                                         .show();
                             }
@@ -167,6 +171,7 @@ public class RegisterActivity extends AppCompatActivity {
     RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener(){
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i){
+            //if userGender=0 not selected
             if(i==R.id.maleButton){
                 userGender=1; //male
             }
