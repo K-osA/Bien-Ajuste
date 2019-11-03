@@ -1,4 +1,4 @@
-package com.example.bienajuste;
+package com.examp.bienajuste;
 
 import org.junit.Test;
 

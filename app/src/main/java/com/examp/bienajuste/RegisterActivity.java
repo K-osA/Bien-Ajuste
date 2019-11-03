@@ -1,4 +1,4 @@
-package com.example.bienajuste;
+package com.examp.bienajuste;
 
 import androidx.annotation.IdRes;
 import androidx.appcompat.app.AlertDialog;
