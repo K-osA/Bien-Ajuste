@@ -8,19 +8,23 @@
 
     <Button
         android:id="@+id/validateButton"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="91dp"
+        android:layout_height="49dp"
         android:layout_gravity="center"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:background="@color/colorWarning"
         android:text="Check ID"
         android:textColor="#ffffff"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/idText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/idText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/footsizeText"
@@ -28,10 +32,12 @@
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="FootSize(카메라로 대체될 것임)"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addressText" />
 
@@ -41,10 +47,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Address"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
@@ -54,10 +62,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,10 +77,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idText" />
 
@@ -80,10 +92,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Age"
         android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -142,7 +156,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genderGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/genderGroup"
+        app:layout_constraintVertical_bias="0.269" />
 
     <EditText
         android:id="@+id/idText"
@@ -150,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="ID"
         android:inputType="textPersonName"
@@ -162,11 +177,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageText" />
 

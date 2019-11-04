@@ -146,6 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         });
                                 dialog=builder.create();
                                 dialog.show();
+
                             }
 
                             else{
