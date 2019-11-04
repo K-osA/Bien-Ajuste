@@ -13,18 +13,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        String userID = intent.getStringExtra("userID");
-        String userPassword = intent.getStringExtra("userPassword");
-        String userName = intent.getStringExtra("userName");
-        int userAge = intent.getIntExtra("userAge",0);
-        String userEmail = intent.getStringExtra("userEmail");
-        String userAddress = intent.getStringExtra("userAddress");
-        int userFootsize= intent.getIntExtra("userFootsize",0);
-        int userGender = intent.getIntExtra("userGender",0);
 
-        UserInfo info = new UserInfo(userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender);
-        User u = new User(userID, info);
+        UserInfo info = new UserInfo(intent.getStringExtra("userPassword"),
+                intent.getStringExtra("userName"),
+                intent.getIntExtra("userAge",0),
+                intent.getStringExtra("userEmail"),
+                intent.getStringExtra("userAddress"),
+                intent.getIntExtra("userFootsize",0),
+                intent.getIntExtra("userGender",0)
+        );
 
+        User u = new User(intent.getStringExtra("userID"), info);
 
     }
 }

@@ -17,11 +17,11 @@ public class User {
         this.userID = userID;
     }
 
-    public UserInfo getInfo() {
+    public UserInfo getUserInfo() {
         return info;
     }
 
-    public void setInfo(UserInfo info) {
+    public void setUserInfo(UserInfo info) {
         this.info = info;
     }
 }
