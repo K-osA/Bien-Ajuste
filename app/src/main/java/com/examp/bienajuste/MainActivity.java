@@ -21,11 +21,10 @@ public class MainActivity extends AppCompatActivity {
         String userAddress = intent.getStringExtra("userAddress");
         int userFootsize= intent.getIntExtra("userFootsize",0);
         int userGender = intent.getIntExtra("userGender",0);
-        int isManager_int = intent.getIntExtra("isManager",0);
-        boolean isManager=false;
 
-        if(isManager_int == 1)
-            isManager=true;
+        UserInfo info = new UserInfo(userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender);
+        User u = new User(userID, info);
+
 
     }
 }

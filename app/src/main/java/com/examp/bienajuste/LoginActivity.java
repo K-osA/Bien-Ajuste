@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                                 String userAddress = jsonResponse.getString("userAddress");
                                 double userFootsize = jsonResponse.getDouble("userFootsize");
                                 int userGender = jsonResponse.getInt("userGender");
-                                int isManager = jsonResponse.getInt("isManager");
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID",userID);
@@ -77,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("userAddress",userAddress);
                                 intent.putExtra("userFootsize",userFootsize);
                                 intent.putExtra("userGender",userGender);
-                                intent.putExtra("isManager",isManager);
 
                                 LoginActivity.this.startActivity(intent);
                             }

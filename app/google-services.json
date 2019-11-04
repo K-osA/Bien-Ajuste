@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "31448459957",
+    "firebase_url": "https://bienajuste-d1e68.firebaseio.com",
+    "project_id": "bienajuste-d1e68",
+    "storage_bucket": "bienajuste-d1e68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31448459957:android:7c8c6a453349315c19acfc",
+        "android_client_info": {
+          "package_name": "com.examp.bienajuste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31448459957-46k05onrhh6crrllulv864l8mqhue4do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg1hsMmhBbfAjhNHTUhLXUGQxQK7S-LdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31448459957-46k05onrhh6crrllulv864l8mqhue4do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
