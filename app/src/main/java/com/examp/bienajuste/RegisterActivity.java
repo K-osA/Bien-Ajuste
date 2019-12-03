@@ -85,9 +85,9 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                ValidateRequest validateRequest = new ValidateRequest(userID, responseListener);
+                DB_Handler DB_Handler = new DB_Handler(userID, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(validateRequest);
+                queue.add(DB_Handler);
 
             }
         });
@@ -161,9 +161,9 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(userID, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, responseListener);
+                DB_Handler DB_Handler = new DB_Handler(userID, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+                queue.add(DB_Handler);
             }
         });
     }
