@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.getIntExtra("userGender",0)
         );
 
-        User u = new User(intent.getStringExtra("userID"), info);
+        User u = new User(intent.getStringExtra("userID"), 1,info);
 
     }
 }

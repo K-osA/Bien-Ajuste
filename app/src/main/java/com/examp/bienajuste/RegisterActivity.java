@@ -37,6 +37,9 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText footsizeText = (EditText) findViewById(R.id.footsizeText);
         final Button validateButton = (Button) findViewById(R.id.validateButton);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
+        final Button measureButton = (Button) findViewById(R.id.measureButton);
+        final Button takeButton = (Button) findViewById(R.id.takeButton);
+
         RadioGroup gendergroup;
 
         gendergroup = (RadioGroup) findViewById(R.id.genderGroup);
@@ -92,6 +95,20 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        takeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+
+        measureButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener(){
 
@@ -183,4 +200,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     };
+
+
 }
