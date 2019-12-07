@@ -19,6 +19,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+
 public class RegisterActivity extends AppCompatActivity {
     private int userGender=0;
     private boolean validate=false;
@@ -27,6 +29,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        Random rnd = new Random();
+        final int cartID = rnd.nextInt(999999);
 
         final EditText nameText = (EditText) findViewById(R.id.nameText);
         final EditText idText = (EditText) findViewById(R.id.idText);
@@ -172,9 +177,11 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                DB_Handler DB_Handler = new DB_Handler(userID, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, responseListener);
+                DB_Handler DB_Handler = new DB_Handler(userID, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, cartID, responseListener);
+                DB_Handler DB_Handler2 = new DB_Handler(cartID, 0, 0, 0, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(DB_Handler);
+                queue.add(DB_Handler2);
             }
         });
     }
