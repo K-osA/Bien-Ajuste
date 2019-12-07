@@ -38,12 +38,12 @@ public class RegisterActivity extends AppCompatActivity {
         final Button validateButton = (Button) findViewById(R.id.validateButton);
         final Button registerButton = (Button) findViewById(R.id.registerButton);
         final Button measureButton = (Button) findViewById(R.id.measureButton);
-        final Button takeButton = (Button) findViewById(R.id.takeButton);
 
         RadioGroup gendergroup;
 
         gendergroup = (RadioGroup) findViewById(R.id.genderGroup);
         gendergroup.setOnCheckedChangeListener(radioGroupButtonChangeListener);
+
 
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,17 +95,11 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        takeButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-
-            }
-        });
-
         measureButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
+                Intent GetImageIntent = new Intent(RegisterActivity.this, GetImageActivity.class);
+                RegisterActivity.this.startActivity(GetImageIntent);
             }
 
         });
@@ -200,6 +194,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     };
-
 
 }

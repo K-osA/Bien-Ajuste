@@ -24,14 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.examp.bienajuste.GetImageActivity" />
+        <!-- 사진 촬영을 위한 provide -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.roopre.cameratutorial.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.examp.bienajuste.provider"
             android:exported="false"
             android:grantUriPermissions="true">
+
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/provider_paths" />
         </provider>
     </application>
 
