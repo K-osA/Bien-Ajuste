@@ -35,7 +35,6 @@ public class Show3DModelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //final Button returnButton = (Button) findViewById(R.id.returnButton);
         Intent intent = getIntent();
         shoesId = intent.getIntExtra("shoesId",0);
 
@@ -44,6 +43,7 @@ public class Show3DModelActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_ux);
+        final Button exitButton = (Button) findViewById(R.id.exitButton);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
         ModelRenderable.builder()
@@ -77,12 +77,12 @@ public class Show3DModelActivity extends AppCompatActivity {
                     andy.select();
                 });
 
-        //returnButton.setOnClickListener(new View.OnClickListener(){
-        //    @Override
-        //    public void onClick(View v) {
-        //        finish();
-        //    }
-        //});
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
