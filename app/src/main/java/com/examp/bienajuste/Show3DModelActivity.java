@@ -8,7 +8,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -35,12 +34,13 @@ public class Show3DModelActivity extends AppCompatActivity {
     private ModelRenderable modelThreeRenderable;
 
     Integer shoesId;
+    boolean modelOne,modelTwo,modelThree;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         shoesId = intent.getIntExtra("shoesId",0);
-
+        modelOne=modelTwo=modelThree=false;
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return;
         }
@@ -50,8 +50,9 @@ public class Show3DModelActivity extends AppCompatActivity {
         final Button exitButton = (Button) findViewById(R.id.exitButton);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
 
-        /*
+
         if (shoesId == 1) {
+            modelOne=true;
             ModelRenderable.builder()
                     .setSource(this, R.raw.converse_3d)
                     .build()
@@ -64,24 +65,10 @@ public class Show3DModelActivity extends AppCompatActivity {
                                 toast.show();
                                 return null;
                             });
-            arFragment.setOnTapArPlaneListener(
-                    (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                        if (modelOneRenderable == null) {
-                            return;
-                        }
-
-                        Anchor anchor = hitResult.createAnchor();
-                        AnchorNode anchorNode = new AnchorNode(anchor);
-                        anchorNode.setParent(arFragment.getArSceneView().getScene());
-
-                        TransformableNode modelOne = new TransformableNode(arFragment.getTransformationSystem());
-                        modelOne.setParent(anchorNode);
-                        modelOne.setRenderable(andyRenderable);
-                        modelOne.select();
-                    });
         }
 
         else if (shoesId == 2) {
+            modelTwo=true;
             ModelRenderable.builder()
                     .setSource(this, R.raw.converse_obj)
                     .build()
@@ -94,24 +81,10 @@ public class Show3DModelActivity extends AppCompatActivity {
                                 toast.show();
                                 return null;
                             });
-            arFragment.setOnTapArPlaneListener(
-                    (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                        if (modelTwoRenderable == null) {
-                            return;
-                        }
-
-                        Anchor anchor = hitResult.createAnchor();
-                        AnchorNode anchorNode = new AnchorNode(anchor);
-                        anchorNode.setParent(arFragment.getArSceneView().getScene());
-
-                        TransformableNode modelTwo = new TransformableNode(arFragment.getTransformationSystem());
-                        modelTwo.setParent(anchorNode);
-                        modelTwo.setRenderable(andyRenderable);
-                        modelTwo.select();
-                    });
         }
 
         else if (shoesId == 3) {
+            modelThree=true;
             ModelRenderable.builder()
                     .setSource(this, R.raw.obj)
                     .build()
@@ -124,54 +97,36 @@ public class Show3DModelActivity extends AppCompatActivity {
                                 toast.show();
                                 return null;
                             });
-            arFragment.setOnTapArPlaneListener(
-                    (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                        if (modelThreeRenderable == null) {
-                            return;
-                        }
 
-                        Anchor anchor = hitResult.createAnchor();
-                        AnchorNode anchorNode = new AnchorNode(anchor);
-                        anchorNode.setParent(arFragment.getArSceneView().getScene());
-
-                        TransformableNode modelThree = new TransformableNode(arFragment.getTransformationSystem());
-                        modelThree.setParent(anchorNode);
-                        modelThree.setRenderable(andyRenderable);
-                        modelThree.select();
-                    });
         }
-
-         */
-
-        ModelRenderable.builder()
-                .setSource(this, R.raw.andy)
-                .build()
-                .thenAccept(renderable -> andyRenderable = renderable)
-                .exceptionally(
-                        throwable -> {
-                            Toast toast =
-                                    Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            return null;
-                        });
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                    if (andyRenderable == null) {
+                    if (modelOne && modelOneRenderable == null || modelTwo && modelTwoRenderable == null || modelThree && modelThreeRenderable == null) {
                         return;
                     }
 
-                    // Create the Anchor.
                     Anchor anchor = hitResult.createAnchor();
                     AnchorNode anchorNode = new AnchorNode(anchor);
                     anchorNode.setParent(arFragment.getArSceneView().getScene());
-
-                    // Create the transformable andy and add it to the anchor.
-                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-                    andy.setParent(anchorNode);
-                    andy.setRenderable(andyRenderable);
-                    andy.select();
+                    if(modelOne){
+                        TransformableNode modelone = new TransformableNode(arFragment.getTransformationSystem());
+                        modelone.setParent(anchorNode);
+                        modelone.setRenderable(modelOneRenderable);
+                        modelone.select();
+                    }
+                    else if(modelTwo){
+                        TransformableNode modeltwo = new TransformableNode(arFragment.getTransformationSystem());
+                        modeltwo.setParent(anchorNode);
+                        modeltwo.setRenderable(modelTwoRenderable);
+                        modeltwo.select();
+                    }
+                    else if(modelThree) {
+                        TransformableNode modelThree = new TransformableNode(arFragment.getTransformationSystem());
+                        modelThree.setParent(anchorNode);
+                        modelThree.setRenderable(modelThreeRenderable);
+                        modelThree.select();
+                    }
                 });
 
         exitButton.setOnClickListener(new View.OnClickListener() {
