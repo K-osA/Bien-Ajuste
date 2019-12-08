@@ -7,11 +7,11 @@
     tools:context=".shoesDescriptionActivity">
 
     <Button
-        android:id="@+id/intocartButton"
+        android:id="@+id/addcartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="236dp"
-        android:text="into cart"
+        android:text="add cart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/modelingButton"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,20 +59,20 @@
         android:layout_height="29dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="104dp"
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/shoesDescriptionText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="0.897"
         app:layout_constraintStart_toEndOf="@+id/shoesDescriptionImage" />
 
     <Button
         android:id="@+id/modelingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="236dp"
         android:text="show3dmodel"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,5 +88,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shoesDescriptionImage" />
+
+    <Button
+        android:id="@+id/plusButton"
+        android:layout_width="34dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="+"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/quantityValue"
+        app:layout_constraintTop_toBottomOf="@+id/shoesSizeText" />
+
+    <Button
+        android:id="@+id/minusButton"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="44dp"
+        android:text="-"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/shoesDescriptionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/quantityValue"
+        app:layout_constraintTop_toBottomOf="@+id/plusButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="72dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Quantity:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/shoesDescriptionImage"
+        app:layout_constraintTop_toBottomOf="@+id/shoesSizeText" />
+
+    <TextView
+        android:id="@+id/quantityValue"
+        android:layout_width="38dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/shoesSizeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

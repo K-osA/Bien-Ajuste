@@ -12,6 +12,7 @@ public class DB_Handler extends StringRequest {
     final static private String registerURL = "http://54.180.25.126/Register.php";
     final static private String validateURL = "http://54.180.25.126/Validate.php";
     final static private String makecartURL = "http://54.180.25.126/Makecart.php";
+    final static private String updatecartURL = "http://54.180.25.126/Updatecart.php";
     private Map<String, String> parameters;
 
     public DB_Handler(String userID, String userPassword, Response.Listener<String> listener){
@@ -43,6 +44,15 @@ public class DB_Handler extends StringRequest {
 
     public DB_Handler(int cartID, int one, int two, int three, Response.Listener<String> listener){
         super(Method.POST, makecartURL, listener, null);
+        parameters = new HashMap<>();
+        parameters.put("cartID",cartID+"");
+        parameters.put("one",one+"");
+        parameters.put("two",two+"");
+        parameters.put("three",three+"");
+    }
+
+    public DB_Handler(String a, int cartID, int one, int two, int three, Response.Listener<String> listener){
+        super(Method.POST, updatecartURL, listener, null);
         parameters = new HashMap<>();
         parameters.put("cartID",cartID+"");
         parameters.put("one",one+"");

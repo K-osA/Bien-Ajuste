@@ -9,18 +9,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class shoesDescriptionActivity extends AppCompatActivity {
 
+    Integer quantity=0, shoesId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoes_description);
-        int shoesId;
         final ImageView shoesDescriptionImage = (ImageView) findViewById(R.id.shoesDescriptionImage);
         final TextView shoesDescriptionText = (TextView) findViewById(R.id.shoesDescriptionText);
-        final Button intocartButton = (Button) findViewById(R.id.intocartButton);
+        final TextView quantityValue = (TextView) findViewById(R.id.quantityValue);
+        final Button addcartButton = (Button) findViewById(R.id.addcartButton);
         final Button modelingButton = (Button) findViewById(R.id.modelingButton);
         final Button exitButton = (Button) findViewById(R.id.exitButton);
+        final Button plusButton = (Button) findViewById(R.id.plusButton);
+        final Button minusButton = (Button) findViewById(R.id.minusButton);
 
         Intent intent = getIntent();
 
@@ -40,10 +44,40 @@ public class shoesDescriptionActivity extends AppCompatActivity {
             shoesDescriptionImage.setImageDrawable(getResources().getDrawable(R.drawable.c));
             shoesDescriptionText.setText("유산소 트레이닝을 지원하다/나이키 플렉스 TR8 트레이닝화는 체육관 안팎에서 펼쳐지는 고강도 유산소 트레이닝에 최적화 되었습니다. 가벼운 메쉬로 공기흐름이 우수하며, 지지력을 보강해 좌 & 우 운동시 민첩성을 더합니다.");
         }
-        intocartButton.setOnClickListener(new View.OnClickListener(){
+        plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                quantity++;
+                quantityValue.setText(quantity.toString());
 
+            }
+        });
+        minusButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(quantity-1>=0) {
+                    quantity--;
+                    quantityValue.setText(quantity.toString());
+                }
+            }
+        });
+
+        addcartButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(shoesId==1) {
+                    Cart.one+=Integer.parseInt(quantityValue.getText().toString());
+                    finish();
+                }
+
+                else if(shoesId==2) {
+                    Cart.two+=Integer.parseInt(quantityValue.getText().toString());
+                    finish();
+                }
+                else if(shoesId==3) {
+                    Cart.three+=Integer.parseInt(quantityValue.getText().toString());
+                    finish();
+                }
             }
         });
         modelingButton.setOnClickListener(new View.OnClickListener(){
@@ -55,8 +89,7 @@ public class shoesDescriptionActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(shoesDescriptionActivity.this, MainActivity.class);
-                shoesDescriptionActivity.this.startActivity(intent);
+                finish();
             }
         });
     }

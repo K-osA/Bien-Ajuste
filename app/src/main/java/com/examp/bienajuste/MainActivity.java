@@ -29,9 +29,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.getIntExtra("userFootsize",0),
                 intent.getIntExtra("userGender",0)
         );
+        User.cartID = intent.getIntExtra("cartID",0);
+        User.info = info;
 
-        User u = new User(intent.getIntExtra("cartID",0),info);
-        Cart c = new Cart(intent.getIntExtra("cartID",0),intent.getIntExtra("one",0),intent.getIntExtra("two",0), intent.getIntExtra("three",0));
+        Cart.cartID=intent.getIntExtra("cartID",0);
+        Cart.one=intent.getIntExtra("one",0);
+        Cart.two=intent.getIntExtra("two",0);
+        Cart.three=intent.getIntExtra("three",0);
+
         shoesImage1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
