@@ -83,7 +83,9 @@ public class shoesDescriptionActivity extends AppCompatActivity {
         modelingButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(shoesDescriptionActivity.this, Show3DModelActivity.class);
+                intent.putExtra("shoesId",1);
+                shoesDescriptionActivity.this.startActivity(intent);
             }
         });
         exitButton.setOnClickListener(new View.OnClickListener(){
