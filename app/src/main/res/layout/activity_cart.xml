@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/totalValue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -322,18 +321,16 @@
     </LinearLayout>
 
 
-
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="66dp"
         android:layout_height="37dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="56dp"
         android:text="Total:"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/applyButton"
         app:layout_constraintEnd_toStartOf="@+id/totalValue"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.776"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -342,7 +339,7 @@
         android:layout_height="36dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="56dp"
         android:text="0"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/exitButton"
@@ -369,4 +366,15 @@
         android:text="exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/payButton"
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="PAY"
+        app:layout_constraintBottom_toTopOf="@+id/applyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalValue"
+        app:layout_constraintVertical_bias="0.65" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,7 +69,8 @@ public class GetImageActivity extends AppCompatActivity {
 
                 Intent RegisterIntent = new Intent(GetImageActivity.this, RegisterActivity.class);
                 RegisterIntent.putExtra("sizeloc",compFile.getAbsolutePath());
-                GetImageActivity.this.startActivity(RegisterIntent); //일단 RegisterActivity로 바로 넘어가게 하였음 추후 수정해야함
+                //GetImageActivity.this.startActivity(RegisterIntent); //일단 RegisterActivity로 바로 넘어가게 하였음 추후 수정해야함
+                finish();
             }
         });
     }
