@@ -132,6 +132,7 @@ public class Show3DModelActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                modelOne=modelTwo=modelThree=false;
                 finish();
             }
         });
