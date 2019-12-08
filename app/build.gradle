@@ -46,3 +46,20 @@ sceneform.asset('sampledata/models/andy.obj',
         'default',
         'sampledata/models/andy.sfa',
         'src/main/res/raw/andy')
+
+sceneform.asset('sampledata/model_1/converse_3d.FBX',
+        'default',
+        'sampledata/model_1/converse_3d.sfa',
+        'src/main/res/raw/converse_3d')
+
+sceneform.asset('sampledata/model_2/converse_obj.obj',
+        'default',
+        'sampledata/model_2/converse_obj.sfa',
+        'src/main/res/raw/converse_obj')
+
+
+
+sceneform.asset('sampledata/model_3/obj.obj',
+        'default',
+        'sampledata/model_3/obj.sfa',
+        'src/main/res/raw/obj')
