@@ -23,6 +23,7 @@ import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity {
     private int userGender=0;
+    private int footSize = 0;
     private boolean validate=false;
 
     @Override
@@ -105,6 +106,11 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent GetImageIntent = new Intent(RegisterActivity.this, GetImageActivity.class);
                 RegisterActivity.this.startActivity(GetImageIntent);
+                Intent measureIntent = getIntent();
+                Double footSize = measureIntent.getExtras().getDouble("name");
+                //Double footSize = 274.125;
+                footsizeText.setText(footSize.toString());
+
             }
 
         });
