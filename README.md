@@ -9,33 +9,33 @@
   유준성 201820792
   정민규 201820736
 
-### MainActivity Class
+### MainActivity.java
 
-### RegisterActivity Class
+### RegisterActivity.java
 
-### MeasureActivity Class
+### MeasureActivity.java
 
-### GetImageActivity Class
+### GetImageActivity.java
 
-### ImageResizeUtils Class
+### ImageResizeUtils.java
 
-### User Class
+### User.java
 
-### UserInfo Class
+### UserInfo.java
 
-### DB_Handler Class
+### DB_Handler.java
 
-### Cart Class
+### Cart.java
 
-### cartActivity Class
+### cartActivity.java
 
-### LoginActivity Class
+### LoginActivity.java
 
-### Shoes Class
+### Shoes.java
 
-### shoesDescriptionActivity Class
+### shoesDescriptionActivity.java
 
-### Show3DModelActivity Class
+### Show3DModelActivity.java
   This class shows shoes' 3D model via user's camera.
   First, there is ModelRenderable variables which is setup for model file as renderable.
   And ArFragment variable make models popup in user's camera. That used for layout layer. 
@@ -44,8 +44,17 @@
   At start this activity, it recall saved instance state and use the intent for bring shoesId.
   The boolean variables for describe which shoe is selected are initially false.
   
-  We check that device could run this app with checkIsSupportedDeviceOrFinish activity, which is basic activity of androidstudio. After checking, set the content view with this Show3DModelActivity layout. Then, make exitButton which return the state before.
-  We also check the shoesId and make each 3D models could appear on user's phone. For example, if the shoesId is 1, set modelOne true, and Builder make model renderable state with setSource, build, accept and exception setups. Then, set avoke the PlaneListener for building 3D model. This app shows the 3D model in real world plane, we used basically offered functions which is find plane and showing the plane with some nodes. If user select one node, then the 3D models appear in node. As the 3D sfb files are very large, we should set scales with getScaleController.
-  When user click the exit, user can go to before state
-  
-  
+
+### Login.php
+  This php file is used to make requests to the server from the LoginActivity class. After receiving the userID and userPassword, the server finds the matching ID & Password in the DB and returns the userId, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, cartID, and response success.
+### Makecart.php
+  This php file is used to request the server from the RegisterActivity class.
+  The server receives a cartID. After that, it stores the data in the DB.
+### Register.php
+  This php file is used to request the server from the RegisterActivity class.
+  The server receives userId, userPassword, userName, userAge, userEmail, userAddress, userFootsize, userGender, cartID. It then stores this information in the DB and returns the response success.
+### Updatecart.php
+ This php file is used to request the server from the shoe description activity class. The server receives a cartID and a list of shoes. After that, it updates the DB.
+### Validate.php
+  This php file is used to request the server from the RegisterActivity class.
+  The server receives a userID. After that, it checks if there is a duplicate ID and returns the value.
