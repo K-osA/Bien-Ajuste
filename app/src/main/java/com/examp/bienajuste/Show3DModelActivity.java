@@ -111,24 +111,24 @@ public class Show3DModelActivity extends AppCompatActivity {
                     anchorNode.setParent(arFragment.getArSceneView().getScene());
                     if(modelOne){
                         TransformableNode modelone = new TransformableNode(arFragment.getTransformationSystem());
-                        modelone.getScaleController().setMinScale(0.00001f);
-                        modelone.getScaleController().setMaxScale(0.00003f);
+                        modelone.getScaleController().setMinScale(0.01f*5);
+                        modelone.getScaleController().setMaxScale(0.03f*5);
                         modelone.setParent(anchorNode);
                         modelone.setRenderable(modelOneRenderable);
                         modelone.select();
                     }
                     else if(modelTwo){
                         TransformableNode modeltwo = new TransformableNode(arFragment.getTransformationSystem());
-                        modeltwo.getScaleController().setMinScale(0.00001f);
-                        modeltwo.getScaleController().setMaxScale(0.00003f);
+                        modeltwo.getScaleController().setMinScale(0.01f*5);
+                        modeltwo.getScaleController().setMaxScale(0.03f*5);
                         modeltwo.setParent(anchorNode);
                         modeltwo.setRenderable(modelTwoRenderable);
                         modeltwo.select();
                     }
                     else if(modelThree) {
                         TransformableNode modelThree = new TransformableNode(arFragment.getTransformationSystem());
-                        modelThree.getScaleController().setMinScale(0.00001f);
-                        modelThree.getScaleController().setMaxScale(0.00003f);
+                        modelThree.getScaleController().setMinScale(0.01f*5);
+                        modelThree.getScaleController().setMaxScale(0.03f*5);
                         modelThree.setParent(anchorNode);
                         modelThree.setRenderable(modelThreeRenderable);
                         modelThree.select();

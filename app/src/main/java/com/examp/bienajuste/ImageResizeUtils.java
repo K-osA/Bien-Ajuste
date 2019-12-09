@@ -82,13 +82,6 @@ public class ImageResizeUtils {
 
 			}
 
-			/*if(width <= newWidth) return;
-
-			float aspect = (float) width / height;
-
-			float scaleWidth = newWidth;
-			float scaleHeight = scaleWidth / aspect;*/
-
 			// create a matrix for the manipulation
 			Matrix matrix = new Matrix();
 

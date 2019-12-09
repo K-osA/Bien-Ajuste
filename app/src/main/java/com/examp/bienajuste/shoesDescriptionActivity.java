@@ -84,7 +84,7 @@ public class shoesDescriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(shoesDescriptionActivity.this, Show3DModelActivity.class);
-                intent.putExtra("shoesId",1);
+                intent.putExtra("shoesId",shoesId);
                 shoesDescriptionActivity.this.startActivity(intent);
             }
         });
