@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity {
+    static final int MEASURE_REQUEST = 1;
     private int userGender=0;
     private int footSize = 0;
     private boolean validate=false;
@@ -105,11 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent GetImageIntent = new Intent(RegisterActivity.this, GetImageActivity.class);
-                RegisterActivity.this.startActivity(GetImageIntent);
-                Intent measureIntent = getIntent();
-                Double footSize = measureIntent.getExtras().getDouble("name");
-                //Double footSize = 274.125;
-                footsizeText.setText(footSize.toString());
+                RegisterActivity.this.startActivityForResult(GetImageIntent, MEASURE_REQUEST);
 
             }
 
@@ -190,6 +187,17 @@ public class RegisterActivity extends AppCompatActivity {
                 queue.add(DB_Handler2);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == MEASURE_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                final EditText footsizeText = (EditText) findViewById(R.id.footsizeText);
+                Double footSize = 274.125;
+                footsizeText.setText(footSize.toString());
+            }
+        }
     }
 
     RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener = new RadioGroup.OnCheckedChangeListener(){

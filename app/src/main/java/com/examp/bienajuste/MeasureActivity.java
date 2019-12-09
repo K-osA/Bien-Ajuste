@@ -23,8 +23,8 @@ public class MeasureActivity extends AppCompatActivity {
     private File tempFile, compFile;
     private Boolean isCamera = false;
 
-    Intent intent = getIntent();
-    private String path = intent.getExtras().getString("name");
+    //Intent intent = getIntent();
+    //private String path = intent.getExtras().getString("name");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class MeasureActivity extends AppCompatActivity {
         });
 
         ImageView imageView = findViewById(R.id.imageView);
-        ImageResizeUtils.resizeFile(tempFile, tempFile, 1280, isCamera);
+        //ImageResizeUtils.resizeFile(tempFile, tempFile, 1280, isCamera);
 
     }
 
