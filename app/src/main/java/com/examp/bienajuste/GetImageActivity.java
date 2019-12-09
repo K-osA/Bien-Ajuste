@@ -67,10 +67,12 @@ public class GetImageActivity extends AppCompatActivity {
                 // 이제 민규찡의 코드로 넘어가자(compFile에는 ImageView에 띄워진 사진의 정보가 들어있음
                 // .getAbsolutePath과 Intent를 이용해 사진의 경로를 민규쪽 코드로 넘길것임)
 
-                Intent RegisterIntent = new Intent(GetImageActivity.this, RegisterActivity.class);
+                Intent RegisterIntent = new Intent(GetImageActivity.this, MeasureActivity.class);
                 RegisterIntent.putExtra("sizeloc",compFile.getAbsolutePath());
+
                 //GetImageActivity.this.startActivity(RegisterIntent); //일단 RegisterActivity로 바로 넘어가게 하였음 추후 수정해야함
-                finish();
+                //finish();
+                GetImageActivity.this.startActivity(RegisterIntent);
             }
         });
     }
