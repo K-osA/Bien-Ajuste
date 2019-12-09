@@ -44,3 +44,8 @@
   At start this activity, it recall saved instance state and use the intent for bring shoesId.
   The boolean variables for describe which shoe is selected are initially false.
   
+  We check that device could run this app with checkIsSupportedDeviceOrFinish activity, which is basic activity of androidstudio. After checking, set the content view with this Show3DModelActivity layout. Then, make exitButton which return the state before.
+  We also check the shoesId and make each 3D models could appear on user's phone. For example, if the shoesId is 1, set modelOne true, and Builder make model renderable state with setSource, build, accept and exception setups. Then, set avoke the PlaneListener for building 3D model. This app shows the 3D model in real world plane, we used basically offered functions which is find plane and showing the plane with some nodes. If user select one node, then the 3D models appear in node. As the 3D sfb files are very large, we should set scales with getScaleController.
+  When user click the exit, user can go to before state
+  
+  
